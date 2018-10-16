@@ -1,0 +1,12 @@
+{% extends 'afterschool/base.html' %}
+{% load staticfiles %}
+{% block content %}
+    <div id="student_signin">
+        <form id='signin_form'method="get">
+            {% for student in students %}
+            <input type="checkbox" class='checkbox' name="{{student.name}}" value="student">{{student.name}}<br/>
+            {% endfor %}
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+{% endblock %}

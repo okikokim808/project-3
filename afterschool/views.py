@@ -44,8 +44,15 @@ def account(request):
     user = User.objects.get(id=user_id)
     parent = Parent.objects.get(user=user)
     return render(request, 'afterschool/account.html', {'parent': parent})
-    
+
+@login_required
+def staff(request):
+    students = Student.objects.filter()
+    return render(request, 'afterschool/staff.html', {'students': students})
+
 @login_required
 def daycare_info(request):
-    
+    if request.method == 'POST':
+        date = request.POST.get('date')
+        
     return render(request, 'afterschool/daycare.html' )
