@@ -1,0 +1,65 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta id="myViewport" name="viewport" content="width = 440">
+        <script>
+            window.onload = function () {
+            var mvp = document.getElementById('myViewport');
+            mvp.setAttribute('content','width=580');
+            }
+        </script>
+        <title>After School Care</title>
+        <link href="https://fonts.googleapis.com/css?family=Dancing+Script:700|Ubuntu" rel="stylesheet">
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+        <link rel="icon" type="image/x-icon" href="//dwscbcy9jc8hm.cloudfront.net/sites/64/comfy/cms/files/4138/files/original/favicon.ico" />
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+        <script src="{% static 'scripts/app.js' %}" defer></script>
+    </head>
+    <header class='header sticky'>
+        <div class='title-logo'>
+            <a href="{% url 'index' %}"><img id='logo'src='//dwscbcy9jc8hm.cloudfront.net/sites/64/comfy/cms/files/4143/files/original/sgs-logo.svg'/></a>
+            <h1 id='title'><a id="a3" href="{% url 'index' %}">St. Gregory School</a></h1>
+        </div>
+        <button class="navbar-toggler toggler-example" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1"
+            aria-expanded="false" aria-label="Toggle navigation"><i class="fas fa-bars"></i></span></button>
+    </header>
+    <body class='body'>
+    <nav class="navbar navbar-light light-blue lighten-4 sticky">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent1">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a id="a1"class="nav-link color" href="{% url 'index' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a id="a2"class="nav-link color" href="{% url 'about' %}">About</a>
+                </li>
+                {% if request.user.is_authenticated %}
+                    <li class="nav-item">
+                        <a id="a6"class="nav-link color" href="{% url 'account' %}">Parent Account</a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="a4"class="nav-link color" href="{% url 'logout' %}">Logout</a>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a id="a5"class="nav-link color" href="{% url 'user_login' %}">Parent Login</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+        <div class="content">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </body>
+    <footer class='footer'>
+        <p>&copy 2018 Saint Gregory's</p>
+    </footer>
+</html>

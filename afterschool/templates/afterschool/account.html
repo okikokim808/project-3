@@ -1,0 +1,43 @@
+{% extends "afterschool/base.html" %}
+{% load staticfiles %}
+{% block content %}
+<h1>Account</h1>
+<div class="account">
+    <div class="parents">
+        <h2>Parent: </h2>
+        <br/>
+        <div class="parent">        
+            <h3>Name: {{parent.user.username}}</h3>
+            <br/>
+            <div class='parent_page'>
+                {% if  parent.id_pic %} 
+                    <img class="idImg" id="idImg" src="{{ parent.id_pic.url }}">
+                {% else %}
+                    <img class="idImg" id="idImg" src="{% static 'images/default.png'%}">
+                {%endif%}
+                <div class="parent_info">
+                    <h3>Balance: {{parent.balance_due}}</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="students">
+        <h2>Students:</h2>
+        <br/> 
+        {% for student in parent.students.all %}
+        <div class="student">
+            <h3 id="name">Name: {{student.name}}</h3>
+            <br/>
+            <div class='student_page'>
+                <img class="idImg" src="{% static 'images/default.png'%}">
+                <div class='student_info'>
+                    <h3>Grade: {{student.year_in_school}}</h3>
+                    <h3>Student ID: {{student.student_id}}</h3>
+                    <h3>Signed In: {{student.is_signedin}}</h3>
+                </div> 
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

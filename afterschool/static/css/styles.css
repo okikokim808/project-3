@@ -1,0 +1,287 @@
+
+.header{
+    background-color: maroon;
+    width: 100%;
+    height: 8vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+#logo{
+    height: 50px;
+    width: 50px;
+    margin-top: 2vh;
+    margin-left: 5vw;
+}
+#title{
+    color: white;
+    height: 100%;
+    margin: 0;
+    margin-top: 2vh;
+    display: flex;
+    align-items: center;
+    font-family: 'Dancing Script', cursive;
+}
+.title-logo{
+    display: flex;
+    margin: 0;
+    width: 60%;
+}
+.navbar-toggler{
+    margin-left: 30%;
+    color: white;
+}
+.navbar-toggler:hover{
+    color: lightgrey;
+}
+.navbar-toggler:active{
+    border: none;
+}
+.navbar {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: maroon;
+    padding: 10px, 16px;
+    margin-top: 8vh;
+    -webkit-box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.4);
+    box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.4);
+}
+.sticky {
+    position: fixed;
+    left: 0;
+    top: 0;
+    border-top: 0;
+    z-index: 100;
+}
+.fa-bars{
+    margin-top: 2vh;
+    font-size: 25px;
+}
+#a1{
+    font-size: 32px;
+    color: white;
+}
+#a2{
+    font-size: 32px;
+    color: white;
+}
+#a3{
+    color: white;
+}
+#a3:hover{
+    color: lightgrey;
+    text-decoration: none;
+}
+#a4{
+    font-size: 32px;
+    color: white;
+}
+#a5{
+    font-size: 32px;
+    color: white;
+}
+#a6{
+    font-size: 32px;
+    color: white;
+}
+.content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 12vh;
+    width: 100%;
+    min-height: 78vh;
+}
+.home{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+}
+.home h1{
+    margin: 3vh 0 5vh 0;
+    font-family: 'Ubuntu', sans-serif;
+    color: maroon;
+}
+.home h2{
+    margin: 11vh 0 3vh 0;
+    font-family: 'Ubuntu', sans-serif;
+    color: maroon;
+}
+.home h3{
+    width: 75%;
+    font-family: 'Ubuntu', sans-serif;
+}
+.home p{
+    width: 75%;
+}
+#last_question{
+    margin-bottom: 10vh;
+}
+#carouselExampleControls{
+    width: 80%;
+}
+.about{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.about h1{
+    margin: 3vh 0 5vh 0;
+    font-family: 'Ubuntu', sans-serif;
+    color: maroon;
+}
+.all-staff{
+    display: flex;
+    flex-wrap: wrap;
+    height: auto;
+    width: 75%;
+    margin-bottom: 20px;
+}
+.staff{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+}
+.staff p{
+    width: 80%;
+    text-align: center;
+    font-size: 20px;
+}
+.profile{
+    width: 50%
+}
+.account{
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    height: auto;
+    width: 80%;
+}
+.parents{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+.parent_page{
+    display: flex;
+}
+.parent_info{
+    display: flex;
+    flex-direction: column;
+}
+.idImg{
+    height: 20vh;
+    width: auto;
+}
+#idImg{
+    margin-right: 5px;
+}
+.students{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+.student{
+    margin-bottom: 10px;
+}
+.student_page{
+    display: flex;
+}
+.student_info{
+    display: flex;
+    flex-direction: column;
+}
+hr {
+    border: none;
+    height: 1px;
+    /* Set the hr color */
+    color: #333; /* old IE */
+    background-color: #333; /* Modern Browsers */
+}
+.footer{
+    background-color: maroon;
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.footer p{
+    color: white;
+    margin: 0;
+}
+@media only screen and (max-width: 880px) {
+    .account{
+        flex-direction: column;
+        align-items: center;
+    }
+    .parents{
+        width: 80%;
+        align-items: flex-start;
+    }
+    .parent{
+        width: 100%;
+    }
+    .students{
+        width: 80%;
+        align-items: flex-start;
+    }
+}
+@media only screen and (max-width: 665px) {
+    #title{
+        font-size: 24px;
+    }
+    .title-logo{
+        align-items: center;
+    }
+    .parents{
+        width: 100%;
+    }
+    .students{
+        margin-left: 0px;
+        width: 100%;
+    }
+    .all-staff{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    .staff{
+        width: 100%;
+    }
+}
+@media only screen and (max-width: 680px) {
+    .parent h3{
+        font-size: 24px;
+    }
+}
+@media only screen and (max-width: 550px) {
+    .account h3{
+        font-size: 24px;
+    }
+}
+@media only screen and (max-width: 460px) {
+    .idImg{
+        height: 10vh;
+    }
+
+}
+@media only screen and (max-width: 405px) {
+    #title{
+        font-size: 20px;
+    }
+    .account h3{
+        font-size: 18px;
+    }
+}

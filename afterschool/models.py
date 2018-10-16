@@ -1,5 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.conf import settings
+from django.contrib import admin
+from django.forms import CheckboxSelectMultiple
 
 class Student(models.Model):
     KINDERGARTEN = 'K'
@@ -21,7 +24,7 @@ class Student(models.Model):
     ('6', 'Sixth'),
     ('7', 'Seventh'),
     ('8', 'Eighth'),
-)
+    )
     name = models.CharField(max_length=100)
     year_in_school = models.CharField(
         max_length=1,
@@ -30,6 +33,7 @@ class Student(models.Model):
     )
     id_pic = models.ImageField(upload_to='profile_pics',blank=True)
     student_id = models.PositiveIntegerField()
+    is_signedin = models.BooleanField(default=False)
 
     def __str__(self):
         return self.name
@@ -44,10 +48,15 @@ class Parent(models.Model):
         return self.user.username
 
 class DailyInfo(models.Model):
-    parent = models.OneToOneField(Parent, on_delete=models.CASCADE)
+    parent = models.ForeignKey(Student, on_delete=models.CASCADE)
     date = models.DateField()
     checkin = models.TimeField()
     checkout = models.TimeField()
 
     def __int__(self):
         return self.date
+
+class MyModelAdmin(admin.ModelAdmin):
+    formfield_overrides = {
+        models.ManyToManyField: {'widget': CheckboxSelectMultiple},
+    }

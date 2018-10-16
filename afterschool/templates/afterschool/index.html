@@ -1,0 +1,35 @@
+{% extends "afterschool/base.html" %}
+{% load staticfiles %}
+{% block content %}
+<div class='home'>
+    <h1>Home</h1>
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img class="d-block w-100" src="//dwscbcy9jc8hm.cloudfront.net/sites/64/comfy/cms/files/5072/files/original/home6_humble.jpg" alt="First slide">
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100" src="//dwscbcy9jc8hm.cloudfront.net/sites/64/comfy/cms/files/5077/files/original/home1_faith.jpg" alt="Second slide">
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100" src="//dwscbcy9jc8hm.cloudfront.net/sites/64/comfy/cms/files/5076/files/original/home2_forever.jpg" alt="Third slide">
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+    </div>
+    <h2>FAQ</h2>
+    <h3>How do I set up an account?</h3>
+    <p>In order to set up an account you must ask someone from the staff to set it up with you because there is a certain level of authentication needed to set up an account. This is just to secure the fact that your child is safe and not able to go to just anyone after school.</p>
+    <h3>What can I do with my account?</h3>
+    <p>You will be able to see exactly when your child has signed in to daycare. You will be able to securely have your kid signed out of daycare. You can even see how long your child has stayed in daycare which will give you your current balance due.</p>
+    <h3>Who is taking care of my kids?</h3>
+    <p id="last_question">Our staff is extremely caring and professional. You can read more about them individually <a href="{% url 'about' %}">here</a>.</p>
+</div>
+{% endblock %}
