@@ -47,4 +47,5 @@ def account(request):
     
 @login_required
 def daycare_info(request):
-    user_id = request.user
+    
+    return render(request, 'afterschool/daycare.html' )

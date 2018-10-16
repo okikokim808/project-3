@@ -1,8 +1,11 @@
-{% extends "afterschool/base.html" %}
-{% load staticfiles %}
+{% extends 'afterschool/base.html' %}
 {% block content %}
-<div class='daycare'>
-    <h1>Day Care Info</h1>
+    <div id="dayCareInfo">
+        <div id="student_name"></div>
+        <div id="date"></div>
+        <div id="time_in"></div>
+        <div id="time_out"></div>
+    </div>
+    <button id="signIn" type="button">Sign Out</button>
     
-</div>
 {% endblock %}
