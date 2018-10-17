@@ -48,21 +48,22 @@ def account(request):
 @login_required
 def staff(request):
     students = Student.objects.filter()
-    return render(request, 'afterschool/staff.html', {'students': students})\
-    
+    return render(request, 'afterschool/staff.html', {'students': students})
+
 @login_required
 def student_signin(request):
-    student = Student.objects.get(id=request.student.student_id)
-    if request.method == 'POST':
-        daycare_info = DailyInfo.objects.create(student=student)
-        daycare_info.date = QueryDict(request.body)
-        daycare_info.checkin = QueryDict(request.body)
-        daycare_info.save()
-        return HttpResponse(QueryDict(request.body))
+    print('LOOK AT ME RIGHT HERE',request.body)
+    is_signedin = True
+    print(is_signedin)
+    name = request.POST['name']
+    print(name)
+    student = Student.objects.get(name=name)
+    student.is_signedin = is_signedin
+    student.save()
+    # taco = DailyInfo.objects.create(student = student,date = ,checkin =,checkout =)
+    return JsonResponse({"success": True})
 
 @login_required
 def daycare_info(request):
-    if request.method == 'POST':
-        date = request.POST.get('date')
-        
+    
     return render(request, 'afterschool/daycare.html' )

@@ -2,10 +2,12 @@
 {% load staticfiles %}
 {% block content %}
     <div id="student_signin">
-        <form id='signin_form'method="get">
-            {% for student in students %}
-            <input type="checkbox" class='checkbox' name="student" value="{{student.student_id}}">{{student.name}}<br/>
-            {% endfor %}
+        {% for student in students %}
+        <form class='signin_form'method="get"> 
+            {% csrf_token %}
+            <input class="name" type="hidden" name="student" value="{{student.name}}" />
+            <input class='signin' type="submit" name="{{student.name}}" value="Sign In"> {{student.name}}: {{student.is_signedin}}<br/> 
         </form>
+        {% endfor %}
     </div>
 {% endblock %}

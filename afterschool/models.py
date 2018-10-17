@@ -42,16 +42,15 @@ class Parent(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE)
     id_pic = models.ImageField(upload_to='profile_pics',blank=True)
     students = models.ManyToManyField(Student,blank=True)
-    balance_due = models.IntegerField()
+    balance_due = models.IntegerField(default=0)
 
     def __str__(self):
         return self.user.username
 
 class DailyInfo(models.Model):
     student = models.ForeignKey(Student, on_delete=models.CASCADE)
-    date = models.DateField()
-    checkin = models.TimeField()
-    checkout = models.TimeField()
+    checkin = models.DateTimeField()
+    checkout = models.DateTimeField()
 
     def __int__(self):
         return self.date
