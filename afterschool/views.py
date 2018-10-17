@@ -68,11 +68,22 @@ def student_signin(request):
     # taco = DailyInfo.objects.create(student = student,date = ,checkin =,checkout =)
     return JsonResponse({"success": True})
 
+def student_signout(request):
+    print('LOOK AT ME RIGHT HERE',request.body)
+    is_signedin = False
+    print(is_signedin)
+    name = request.POST['name']
+    print(name)
+    student = Student.objects.get(name=name)
+    student.is_signedin = is_signedin
+    student.save()
+    # taco = DailyInfo.objects.create(student = student,date = ,checkin =,checkout =)
+    return JsonResponse({"success": True})
+
 @login_required
 def daycare_info(request):
-    user_id = request.user.id
-    user = User.objects.get(id=user_id)
-    parent = Parent.objects.get(user=user)
-    student = parent.Student.objects.get()
-    print(student)
+    # name = request.POST['name']
+    # print(name)
+    # student = Student.objects.get(name=name)
+    # dailyInfos = DailyInfo.objects.filter(student=student){'dailyInfos':dailyInfos}
     return render(request, 'afterschool/daycare.html' )

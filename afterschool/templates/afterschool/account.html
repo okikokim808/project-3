@@ -34,7 +34,11 @@
                     <h3>Grade: {{student.year_in_school}}</h3>
                     <h3>Student ID: {{student.student_id}}</h3>
                     {% if student.is_signedin %}
-                        <h3>Signed In: <a href="{% url 'daycare' %}">True</a></h3>
+                    <form action="{% url 'daycare' %}" class='daycare' method="get"> 
+                            {% csrf_token %}
+                            <input class="name" type="hidden" name="student" value="{{student.name}}" />
+                            <h3>Signed In: <input class='signin' type="submit" name="{{student.name}}" value="True"></h3><br/> 
+                        </form>
                     {% else %}
                         <h3>Signed In: {{student.is_signedin}}</h3>
                     {% endif %}

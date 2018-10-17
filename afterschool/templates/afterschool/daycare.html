@@ -2,10 +2,11 @@
 {% load staticfiles %}
 {% block content %}
     <div id="student_signin">
+        <h1>Sorry under construction</h1>
         <form class='signin_form'method="get"> 
             {% csrf_token %}
             <input class="name" type="hidden" name="student" value="{{student.name}}" />
-            <input class='signin' type="submit" name="{{student.name}}" value="Sign In"> {{student.name}} {{student.is_signedin}}<br/> 
+            <input class='signin' type="submit" name="{{student.name}}" value="Sign Out"> {{student.name}}: {{student.is_signedin}}<br/> 
         </form>
     </div>
 {% endblock %}
