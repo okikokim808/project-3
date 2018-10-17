@@ -7,6 +7,7 @@ from django.urls import reverse
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse, QueryDict
 from .models import Student, Parent, DailyInfo, User
 from django.views.decorators.csrf import csrf_exempt
+from datetime import datetime
 # Create your views here.
 
 def index(request):
@@ -60,10 +61,18 @@ def student_signin(request):
     student = Student.objects.get(name=name)
     student.is_signedin = is_signedin
     student.save()
+    myDate = datetime.now()
+    formatedDate = myDate.strftime("%Y-%m-%d %H:%M:%S")
+    daily_info = DailyInfo.objects.create(student=student, checkin=formatedDate, checkout=formatedDate)
+    daily_info.save()
     # taco = DailyInfo.objects.create(student = student,date = ,checkin =,checkout =)
     return JsonResponse({"success": True})
 
 @login_required
 def daycare_info(request):
-    
+    user_id = request.user.id
+    user = User.objects.get(id=user_id)
+    parent = Parent.objects.get(user=user)
+    student = parent.Student.objects.get()
+    print(student)
     return render(request, 'afterschool/daycare.html' )

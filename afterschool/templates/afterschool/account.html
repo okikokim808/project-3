@@ -33,7 +33,11 @@
                 <div class='student_info'>
                     <h3>Grade: {{student.year_in_school}}</h3>
                     <h3>Student ID: {{student.student_id}}</h3>
-                    <h3>Signed In: {{student.is_signedin}}</h3>
+                    {% if student.is_signedin %}
+                        <h3>Signed In: <a href="{% url 'daycare' %}">True</a></h3>
+                    {% else %}
+                        <h3>Signed In: {{student.is_signedin}}</h3>
+                    {% endif %}
                 </div> 
             </div>
         </div>

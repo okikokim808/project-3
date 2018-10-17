@@ -50,10 +50,10 @@ class Parent(models.Model):
 class DailyInfo(models.Model):
     student = models.ForeignKey(Student, on_delete=models.CASCADE)
     checkin = models.DateTimeField()
-    checkout = models.DateTimeField()
+    checkout = models.DateTimeField(blank=True)
 
     def __int__(self):
-        return self.date
+        return self.student.name
 
 class MyModelAdmin(admin.ModelAdmin):
     formfield_overrides = {
