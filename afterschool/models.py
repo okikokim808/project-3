@@ -48,9 +48,9 @@ class Parent(models.Model):
         return self.user.username
 
 class DailyInfo(models.Model):
-    student = models.ForeignKey(Student, on_delete=models.CASCADE)
+    student = models.ForeignKey(Student, on_delete=models.CASCADE, related_name='daily')
     checkin = models.DateTimeField()
-    checkout = models.DateTimeField(blank=True)
+    checkout = models.DateTimeField(blank=True, null=True)
 
     def __int__(self):
         return self.student.name

@@ -27,6 +27,7 @@
         {% for student in parent.students.all %}
         <div class="student">
             <h3 id="name">Name: {{student.name}}</h3>
+            <p>{{student.daily}}</p>
             <br/>
             <div class='student_page'>
                 <img class="idImg" src="{% static 'images/default.png'%}">
@@ -37,10 +38,10 @@
                     <form action="{% url 'daycare' %}" class='daycare' method="get"> 
                             {% csrf_token %}
                             <input class="name" type="hidden" name="student" value="{{student.name}}" />
-                            <h3>Signed In: <input class='signin' type="submit" name="{{student.name}}" value="True"></h3><br/> 
-                        </form>
+                            <h3><input class='signin' type="submit" name="{{student.name}}" value="Checked In"></h3><br/> 
+                    </form>
                     {% else %}
-                        <h3>Signed In: {{student.is_signedin}}</h3>
+                        <h3>Absent</h3>
                     {% endif %}
                 </div> 
             </div>
