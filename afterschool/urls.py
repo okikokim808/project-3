@@ -11,6 +11,7 @@ urlpatterns=[
     path('account/daycare/', views.daycare_info, name='daycare'),
     path('staff/signout', views.student_signout, name='signout'),
     path('login', views.user_login, name="user_login"),
+    path('staff_login', views.staff_login, name="staff_login"),
     path('logout', views.user_logout, name='logout'),
     path('staff/student_signin/',views.student_signin, name='student_signin'),
     path('staff/', views.staff, name='staff'),

@@ -34,6 +34,25 @@ def user_login(request):
     else:
         return render(request, 'afterschool/login.html', {})
 
+def staff_login(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(username=username, password=password)
+        if user:
+            if user.is_active:
+                login(request,user)
+                return redirect('index')
+            else:
+                return HttpResponse("Your account was inactive.")
+        else:
+            print("Someone tried to login and failed.")
+            print(f'They used username: {username} and password: {password}')
+            return HttpResponse("Invalid login details given")
+    else:
+        return render(request, 'afterschool/staff_login.html', {})
+
+
 @login_required
 def user_logout(request):
     logout(request)
