@@ -23,7 +23,33 @@
           <span class="sr-only">Next</span>
         </a>
     </div>
+    <div class="logins">
+      <div class="container picture2">
+        <div class="jumbotron indexLogin">
+            <h1>Parent Login</h1>
+            <form method="post" action="{% url 'user_login' %}" class="boxes">
+                {% csrf_token %}
+                <input type="text" name="username" placeholder="Username">
+                <input type="password" name="password" placeholder="Password">
+                <input type="submit" name="" value="Login">
+            </form>
+        </div>
+      </div>
+      <div class="container picture2">
+        <div class="jumbotron indexLogin">
+            <h1>Staff Login</h1>
+            <form method="post" action="{% url 'staff_login' %}" class="boxes">
+                {% csrf_token %}
+                <input type="text" name="username" placeholder="Username">
+                <input type="password" name="password" placeholder="Password">
+                <input type="submit" name="" value="Login">
+            </form>
+        </div>
+      </div>
+    </div>
     <h2>FAQ</h2>
+    <h3>Can I demo the site?</h3>
+    <p>Of course just sign in with the username: JimBob and password: locomoco</p>
     <h3>How do I set up an account?</h3>
     <p>In order to set up an account you must ask someone from the staff to set it up with you because there is a certain level of authentication needed to set up an account. This is just to secure the fact that your child is safe and not able to go to just anyone after school.</p>
     <h3>What can I do with my account?</h3>

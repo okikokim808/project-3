@@ -4,7 +4,7 @@
         <h1>Staff Login</h1>
         <div class="jumbotron">
             <h1>Login here :</h1>
-            <form method="post" action="{% url 'user_login' %}">
+            <form method="post" action="{% url 'staff_login' %}">
                 {% csrf_token %}
                 <label for="username">Username:</label>
                 <input type="text" name="username" placeholder="Username">

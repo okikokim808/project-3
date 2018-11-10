@@ -43,6 +43,7 @@ class Parent(models.Model):
     id_pic = models.ImageField(upload_to='profile_pics',blank=True)
     students = models.ManyToManyField(Student,blank=True)
     balance_due = models.IntegerField(default=0)
+    is_staff = models.BooleanField(default=False)
 
     def __str__(self):
         return self.user.username

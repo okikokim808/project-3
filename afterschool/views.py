@@ -8,7 +8,6 @@ from django.http import HttpResponse, HttpResponseRedirect, JsonResponse, QueryD
 from .models import Student, Parent, DailyInfo, User
 from django.views.decorators.csrf import csrf_exempt
 from datetime import datetime
-# Create your views here.
 
 def index(request):
     return render(request, 'afterschool/index.html')
@@ -39,7 +38,9 @@ def staff_login(request):
         username = request.POST.get('username')
         password = request.POST.get('password')
         user = authenticate(username=username, password=password)
-        if user:
+        userName = User.objects.get(username=username)
+        parent = Parent.objects.get(user=userName)
+        if parent.is_staff:
             if user.is_active:
                 login(request,user)
                 return redirect('index')
