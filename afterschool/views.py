@@ -10,6 +10,22 @@ from django.views.decorators.csrf import csrf_exempt
 from datetime import datetime
 
 def index(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(username=username, password=password)
+        userName = User.objects.get(username=username)
+        parent = Parent.objects.get(user=userName)
+        if parent.is_staff:
+            if user.is_active:
+                login(request,user)
+                return redirect('index')
+            else:
+                return HttpResponse("Your account was inactive.")
+        else:
+            print("Someone tried to login and failed.")
+            print(f'They used username: {username} and password: {password}')
+            return HttpResponse("Invalid login details given")
     return render(request, 'afterschool/index.html')
 
 def about(request):
